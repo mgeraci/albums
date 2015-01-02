@@ -42,8 +42,10 @@
 						</div>
 					{% endif %}
 
-					{% if selection.album.sample %}
-						<div class="song"></div>
+					{% if selection.album.sample and selection.album.sample_name %}
+						<div class="song">
+							{{ selection.album.sample_name }}
+						</div>
 						<audio controls>
 							<source src="{{ MEDIA_URL }}{{ selection.album.sample }}" type="audio/mpeg">
 						</audio>

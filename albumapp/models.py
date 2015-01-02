@@ -7,6 +7,7 @@ class Album(models.Model):
   year = models.PositiveSmallIntegerField()
   cover = models.ImageField(upload_to='covers', blank=True, null=True)
   sample = models.FileField(upload_to='samples', blank=True, null=True)
+  sample_name = models.CharField(max_length=200, blank=True, null=True)
 
   class Meta:
     ordering = ['year', 'artist']
