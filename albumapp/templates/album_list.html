@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	{% for list in lists %}
+		<a href="{% url 'album_list_url' list.slug %}">{{ list.slug }}</a>
+	{% endfor %}
+
+	<br>
+	<br>
+
+	{{ list.name }}
+
+	<br>
+	<br>
+
+	{% for selection in selections %}
+		{{ selection.position }}:
+
+		{% if selection.album.sample %}
+			<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
+		{% endif %}
+
+		{{ selection.album.artist }}
+		-
+		{{ selection.album.name }}
+
+		{% if selection.description %}
+			<br>
+			<br>
+			{{ selection.description }}
+		{% endif %}
+
+		{% if selection.album.sample %}
+			<br>
+			<br>
+			<audio controls>
+				<source src="{{ MEDIA_URL }}{{ selection.album.sample }}" type="audio/mpeg">
+			</audio>
+		{% endif %}
+
+		<br>
+		<br>
+	{% endfor %}
+
+{% endblock %}

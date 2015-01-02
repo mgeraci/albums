@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+	All Lists:
+	<br>
+	<br>
+
+	{% for list in lists %}
+		<a href="{% url 'album_list_url' list.slug %}">{{ list.name }}</a>
+	{% endfor %}
+
+{% endblock %}

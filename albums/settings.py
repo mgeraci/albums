@@ -86,8 +86,8 @@ STATIC_ROOT = 'staticfiles'
 
 # Media files
 
-MEDIA_ROOT = '//s3.amazonaws.com/mg-albums'
-MEDIA_URL = 'http://s3.amazonaws.com/mg-albums/'
+MEDIA_ROOT = '//s3-us-west-2.amazonaws.com/mg-albums'
+MEDIA_URL = 'http://s3-us-west-2.amazonaws.com/mg-albums/'
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_S3_SECURE_URLS = False   # use http or https
 AWS_QUERYSTRING_AUTH = False # don't use aws auth
