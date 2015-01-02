@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block title %}
+	{{ list.name }}
+{% endblock %}
+
 {% block content %}
 
 	{% for list in lists %}
