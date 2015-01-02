@@ -22,7 +22,7 @@
 				<div class="count count{{ selection.position }}">{{ selection.position }}</div>
 
 				<div class="image" data-src="{{ MEDIA_URL }}{{ selection.album.cover }}">
-					{% if selection.album.sample %}
+					{% if selection.album.cover %}
 						<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
 					{% endif %}
 				</div>
