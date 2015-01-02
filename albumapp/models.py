@@ -41,7 +41,8 @@ class AlbumSelection(models.Model):
 
 class AlbumLink(models.Model):
   name = models.CharField(max_length=100)
-  href = models.CharField(max_length=300)
+  href = models.URLField()
+  classes = models.CharField(max_length=100, blank=True, null=True)
   album = models.ForeignKey(Album)
 
   class Meta:

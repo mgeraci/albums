@@ -12,13 +12,11 @@ def album_list(request, slug):
   lists = AlbumList.objects.all()
   list = get_object_or_404(AlbumList, slug=slug)
   selections = AlbumSelection.objects.filter(album_list=list)
-  links = AlbumLink.objects.all()
 
   context = {
     'lists': lists,
     'list': list,
     'selections': selections,
-    'links': links
   }
 
   return render(request, 'album_list.html', context)

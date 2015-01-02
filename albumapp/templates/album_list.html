@@ -37,7 +37,7 @@
 					</h3>
 
 					{% if selection.description %}
-						<div class="text">
+						<div class="description">
 							{{ selection.description }}
 						</div>
 					{% endif %}
@@ -50,12 +50,10 @@
 					{% endif %}
 
 					<div class="buy-links">
-						{% for link in links %}
-							{% if link.album.id == selection.album.id %}
-								<a class="link personal" target="_blank" href="{{ link.href }}">
-									{{ link.name }}
-								</a>
-							{% endif %}
+						{% for link in selection.album.albumlink_set.all %}
+							<a class="link {{ link.classes }}" target="_blank" href="{{ link.href }}">
+								{{ link.name }}
+							</a>
 						{% endfor %}
 					</div>
 				</div>
@@ -63,5 +61,9 @@
 			</li>
 		{% endfor %}
 	</ul>
+
+	<div id="thanks">
+		That&rsquo;s it. Thanks for reading.
+	</div>
 
 {% endblock %}
