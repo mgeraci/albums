@@ -13,11 +13,21 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 try:
-  from local_settings import (DEBUG, SECRET_KEY, DATABASES)
+  from local_settings import (
+    DEBUG,
+    SECRET_KEY,
+    DATABASES,
+    AWS_S3_ACCESS_KEY_ID,
+    AWS_S3_SECRET_ACCESS_KEY,
+    AWS_STORAGE_BUCKET_NAME
+  )
 
 except Exception as e:
   DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
   SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
+  AWS_S3_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
+  AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
+  AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
 
   # $DATABASE_URL must be defined for this to work
   import dj_database_url
@@ -38,6 +48,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'albumapp',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -70,3 +82,12 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'staticfiles'
+
+
+# Media files
+
+MEDIA_ROOT = '//s3.amazonaws.com/mg-albums'
+MEDIA_URL = 'http://s3.amazonaws.com/mg-albums/'
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_S3_SECURE_URLS = False   # use http or https
+AWS_QUERYSTRING_AUTH = False # don't use aws auth
