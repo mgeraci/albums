@@ -37,3 +37,15 @@ class AlbumSelection(models.Model):
 
   def __unicode__(self):
     return '{}: {} - {}'.format(self.album_list, self.position, self.album)
+
+
+class AlbumLink(models.Model):
+  name = models.CharField(max_length=100)
+  href = models.CharField(max_length=300)
+  album = models.ForeignKey(Album)
+
+  class Meta:
+    ordering = ['name']
+
+  def __unicode__(self):
+    return '{} - {}'.format(self.album, self.name)

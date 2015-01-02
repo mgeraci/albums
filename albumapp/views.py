@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404
-from albumapp.models import Album, AlbumList, AlbumSelection
+from albumapp.models import Album, AlbumList, AlbumSelection, AlbumLink
 
 
 def album_lists(request):
@@ -12,10 +12,13 @@ def album_list(request, slug):
   lists = AlbumList.objects.all()
   list = get_object_or_404(AlbumList, slug=slug)
   selections = AlbumSelection.objects.filter(album_list=list)
+  links = AlbumLink.objects.all()
+
   context = {
     'lists': lists,
     'list': list,
-    'selections': selections
+    'selections': selections,
+    'links': links
   }
 
   return render(request, 'album_list.html', context)

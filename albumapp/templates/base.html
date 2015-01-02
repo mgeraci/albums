@@ -4,8 +4,44 @@
 		<title>
 			Michael P. Geraci - {% block title %}{% endblock %}
 		</title>
+		<link rel="shortcut icon" href="http://michaelgeraci.com/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}stylesheets/style.css" />
 	</head>
 	<body>
-		{% block content %}{% endblock %}
+
+		<div id="menuWrapper" class="wrapOut">
+			<div class="wrapIn">
+				<ul id="menu">
+					<li>
+						<a class="bio" href="/">Bio/Resume</a>
+					</li>
+					<li>
+						<a class="web" href="/web">Web Design</a>
+					</li>
+					<li>
+						<a class="photo" href="/photography">Photography</a>
+					</li>
+					<li>
+						<a class="graphic" href="/graphic">Graphic Design</a>
+					</li>
+					<li>
+						<a class="composition" href="/composition">Compositions and Multimedia</a>
+					</li>
+					<li>
+						<a class="recordings" href="/recordings">Recordings</a>
+					</li>
+					<li>
+						<a class="links" style="margin-right: 0px;" href="/links">Links</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+
+		<div id="contentWrapper" class="wrapOut">
+			<div class="wrapIn">
+				{% block content %}{% endblock %}
+			</div>
+		</div>
+
 	</body>
 </html>

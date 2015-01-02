@@ -6,45 +6,62 @@
 
 {% block content %}
 
-	{% for list in lists %}
-		<a href="{% url 'album_list_url' list.slug %}">{{ list.slug }}</a>
-	{% endfor %}
+	<h3>I don&rsquo;t know if you care, but here are</h2>
+	<h1>{{ list.name }}</h1>
 
-	<br>
-	<br>
+	<div class="links">
+		see also:
+		{% for list in lists %}
+			<a href="{% url 'album_list_url' list.slug %}">{{ list.slug }}</a>
+		{% endfor %}
+	</div>
 
-	{{ list.name }}
+	<ul id="albums">
+		{% for selection in selections %}
+			<li>
+				<div class="count count{{ selection.position }}">{{ selection.position }}</div>
 
-	<br>
-	<br>
+				<div class="image" data-src="{{ MEDIA_URL }}{{ selection.album.cover }}">
+					{% if selection.album.sample %}
+						<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
+					{% endif %}
+				</div>
 
-	{% for selection in selections %}
-		{{ selection.position }}:
+				<div class="content">
+					<h2>
+						{{ selection.album.name }}
+					</h2>
+					<h3>
+						by
+						<span>{{ selection.album.artist }}</span>
+					</h3>
 
-		{% if selection.album.sample %}
-			<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
-		{% endif %}
+					{% if selection.description %}
+						<div class="text">
+							{{ selection.description }}
+						</div>
+					{% endif %}
 
-		{{ selection.album.artist }}
-		-
-		{{ selection.album.name }}
+					{% if selection.album.sample %}
+						<div class="song"></div>
+						<audio controls>
+							<source src="{{ MEDIA_URL }}{{ selection.album.sample }}" type="audio/mpeg">
+						</audio>
+					{% endif %}
 
-		{% if selection.description %}
-			<br>
-			<br>
-			{{ selection.description }}
-		{% endif %}
+					<div class="buy-links">
+						{% for link in links %}
+							{% if link.album.id == selection.album.id %}
+								<a class="link personal" target="_blank" href="{{ link.href }}">
+									{{ link.name }}
+								</a>
+							{% endif %}
+						{% endfor %}
+					</div>
+				</div>
 
-		{% if selection.album.sample %}
-			<br>
-			<br>
-			<audio controls>
-				<source src="{{ MEDIA_URL }}{{ selection.album.sample }}" type="audio/mpeg">
-			</audio>
-		{% endif %}
-
-		<br>
-		<br>
-	{% endfor %}
+			</li>
+		{% endfor %}
+	</ul>
 
 {% endblock %}
