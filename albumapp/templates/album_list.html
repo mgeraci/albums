@@ -13,9 +13,7 @@
 		see also:
 		{% for link in lists %}
 			{% if list.slug != link.slug %}
-				<a href="{% url 'album_list_url' link.slug %}">
-					{{ link.slug }}
-				</a>
+				<a href="{% url 'album_list_url' link.slug %}">{{ link.slug }}</a>
 			{% endif %}
 		{% endfor %}
 	</div>
