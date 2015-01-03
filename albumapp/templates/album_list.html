@@ -11,8 +11,12 @@
 
 	<div class="links">
 		see also:
-		{% for list in lists %}
-			<a href="{% url 'album_list_url' list.slug %}">{{ list.slug }}</a>
+		{% for link in lists %}
+			{% if list.slug != link.slug %}
+				<a href="{% url 'album_list_url' link.slug %}">
+					{{ link.slug }}
+				</a>
+			{% endif %}
 		{% endfor %}
 	</div>
 
@@ -21,7 +25,10 @@
 			<li>
 				<div class="count count{{ selection.position }}">{{ selection.position }}</div>
 
-				<div class="image" data-src="{{ MEDIA_URL }}{{ selection.album.cover }}">
+				<div class="image"
+						{% if selection.album.cover %}
+							data-src="{{ MEDIA_URL }}{{ selection.album.cover }}
+						{% endif %}">
 					{% if selection.album.cover %}
 						<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
 					{% endif %}
