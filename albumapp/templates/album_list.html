@@ -12,9 +12,13 @@
 	<div class="links">
 		see also:
 		{% for link in lists %}
-			{% if list.slug != link.slug %}
-				<a href="{% url 'album_list_url' link.slug %}">{{ link.slug }}</a>
-			{% endif %}
+			<a
+					href="{% url 'album_list_url' link.slug %}"
+					{% if list.slug == link.slug %}
+						class="active"
+					{% endif %}
+					>
+				{{ link.slug }}</a>
 		{% endfor %}
 	</div>
 
@@ -25,8 +29,8 @@
 
 				<div class="image"
 						{% if selection.album.cover %}
-							data-src="{{ MEDIA_URL }}{{ selection.album.cover }}
-						{% endif %}">
+							data-src="{{ MEDIA_URL }}{{ selection.album.cover }}"
+						{% endif %}>
 					{% if selection.album.cover %}
 						<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
 					{% endif %}

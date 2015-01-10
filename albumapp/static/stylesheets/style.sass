@@ -60,6 +60,9 @@ a
   text-align: center
   font-size: 18px
 
+  .active
+    text-decoration: none
+
 
 
 // album lists
@@ -177,6 +180,9 @@ img
     line-height: 500px
     opacity: 0.5
     @include transition(opacity 100ms linear)
+
+    &:first-child
+      margin-left: 0
 
     &:hover
       opacity: 1
