@@ -25,15 +25,14 @@
 	<ul id="albums">
 		{% for selection in selections %}
 			<li>
-				<div class="count count{{ selection.position }}">{{ selection.position }}</div>
+				<div class="count count{{ selection.position }}">
+					{{ selection.position }}
+				</div>
 
 				<div class="image"
 						{% if selection.album.cover %}
 							data-src="{{ MEDIA_URL }}{{ selection.album.cover }}"
 						{% endif %}>
-					{% if selection.album.cover %}
-						<img src="{{ MEDIA_URL }}{{ selection.album.cover }}" />
-					{% endif %}
 				</div>
 
 				<div class="content">
@@ -55,14 +54,13 @@
 						<div class="song">
 							{{ selection.album.sample_name }}
 						</div>
-						<audio controls>
-							<source src="{{ MEDIA_URL }}{{ selection.album.sample }}" type="audio/mpeg">
-						</audio>
+						<div id="audioplayer-{{ selection.album.id }}" class="audioplayer"
+								data-src="{{ MEDIA_URL }}{{ selection.album.sample }}"></div>
 					{% endif %}
 
 					<div class="buy-links">
 						{% for link in selection.album.albumlink_set.all %}
-							<a class="link {{ link.classes }}" target="_blank" href="{{ link.href }}">
+							<a class="link {{ link.classes }}" href="{{ link.href }}" target="_blank">
 								{{ link.name }}
 							</a>
 						{% endfor %}
