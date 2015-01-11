@@ -8,8 +8,10 @@
 	All Lists:
 	<br>
 	{% for list in lists %}
-		<br>
-		<a href="{% url 'album_list_url' list.slug %}">{{ list.name }}</a>
+		{% if not list.hidden %}
+			<br>
+			<a href="{% url 'album_list_url' list.slug %}">{{ list.name }}</a>
+		{% endif %}
 	{% endfor %}
 
 {% endblock %}

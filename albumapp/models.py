@@ -19,6 +19,7 @@ class Album(models.Model):
 class AlbumList(models.Model):
   name = models.CharField(max_length=200)
   slug = models.SlugField(max_length=200, unique=True)
+  hidden = models.BooleanField(default=False)
 
   class Meta:
     ordering = ['name']

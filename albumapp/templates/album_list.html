@@ -12,13 +12,15 @@
 	<div class="links">
 		see also:
 		{% for link in lists %}
-			<a
-					href="{% url 'album_list_url' link.slug %}"
-					{% if list.slug == link.slug %}
-						class="active"
-					{% endif %}
-					>
-				{{ link.slug }}</a>
+			{% if not link.hidden %}
+				<a
+						href="{% url 'album_list_url' link.slug %}"
+						{% if list.slug == link.slug %}
+							class="active"
+						{% endif %}
+						>
+					{{ link.slug }}</a>
+			{% endif %}
 		{% endfor %}
 	</div>
 
