@@ -37,7 +37,7 @@
 
 				<div class="content">
 					<h2>
-						{{ selection.album.name }}
+						{{ selection.album.name|safe }}
 					</h2>
 					<h3>
 						by
@@ -52,7 +52,7 @@
 
 					{% if selection.album.sample and selection.album.sample_name %}
 						<div class="song">
-							{{ selection.album.sample_name }}
+							{{ selection.album.sample_name|safe }}
 						</div>
 						<div id="audioplayer-{{ selection.album.id }}" class="audioplayer"
 								data-src="{{ MEDIA_URL }}{{ selection.album.sample }}"></div>
@@ -61,7 +61,7 @@
 					<div class="buy-links">
 						{% for link in selection.album.albumlink_set.all %}
 							<a class="link {{ link.classes }}" href="{{ link.href }}" target="_blank">
-								{{ link.name }}
+								{{ link.name|safe }}
 							</a>
 						{% endfor %}
 					</div>
@@ -73,6 +73,8 @@
 
 	<div id="thanks">
 		That&rsquo;s it. Thanks for reading.
+		<br>
+		Complain via <a href="mailto:me@mgeraci.com">email</a>.
 	</div>
 
 {% endblock %}
