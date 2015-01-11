@@ -17,6 +17,7 @@ try:
     DEBUG,
     SECRET_KEY,
     DATABASES,
+    STATIC_ROOT,
     AWS_S3_ACCESS_KEY_ID,
     AWS_S3_SECRET_ACCESS_KEY,
     AWS_STORAGE_BUCKET_NAME
@@ -81,7 +82,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = 'staticfiles'
 
 
 # Media files
