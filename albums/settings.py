@@ -12,28 +12,15 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-try:
-  from local_settings import (
-    DEBUG,
-    SECRET_KEY,
-    DATABASES,
-    STATIC_ROOT,
-    AWS_S3_ACCESS_KEY_ID,
-    AWS_S3_SECRET_ACCESS_KEY,
-    AWS_STORAGE_BUCKET_NAME
-  )
-
-except Exception as e:
-  DEBUG = bool(os.environ.get('DJANGO_DEBUG', ''))
-  SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
-  AWS_S3_ACCESS_KEY_ID = os.environ['AWS_S3_ACCESS_KEY_ID']
-  AWS_S3_SECRET_ACCESS_KEY = os.environ['AWS_S3_SECRET_ACCESS_KEY']
-  AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
-
-  # $DATABASE_URL must be defined for this to work
-  import dj_database_url
-  DATABASES = {}
-  DATABASES['default'] = dj_database_url.config()
+from local_settings import (
+  DEBUG,
+  SECRET_KEY,
+  DATABASES,
+  STATIC_ROOT,
+  AWS_S3_ACCESS_KEY_ID,
+  AWS_S3_SECRET_ACCESS_KEY,
+  AWS_STORAGE_BUCKET_NAME,
+)
 
 TEMPLATE_DEBUG = DEBUG
 
