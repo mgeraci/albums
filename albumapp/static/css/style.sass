@@ -120,6 +120,14 @@ li:nth-child(7)
   .count
     top: -30px
 
+li:nth-child(8)
+  .count
+    top: 30px
+
+li:nth-child(9)
+  .count
+    top: -40px
+
 li:nth-child(10),
 li:nth-child(11),
 li:nth-child(12),
@@ -129,6 +137,10 @@ li:nth-child(15)
   .count
     letter-spacing: -70px
     left: -230px
+
+li:nth-child(11)
+  .count
+    left: -210px
 
 .image,
 img
@@ -176,19 +188,17 @@ img
   .buy-links
     +stackwide
     margin:
-      top: 20px
+      top: 30px
 
   .link
     float: left
     margin-left: 10px
-    font-size: 24px
-    //padding: 5px 8px
-    position: relative
-    overflow: hidden
-    //line-height: 500px
     opacity: 0.5
-    @include transition(opacity 100ms linear)
+    @include transition(opacity 75ms linear)
     font-size: 20px
+    line-height: 13px
+    text-decoration: none
+    border-bottom: 1px solid $text
 
     &:first-child
       margin-left: 0
@@ -197,14 +207,12 @@ img
       opacity: 1
       color: $text
 
+    // stubs for potentially styling later
+    //&.amazon
+    //&.itunes
+    //&.spotify
+    //&.bandcamp
     //&.text
-      //bottom: 2px
-      //right: 8px
-      //font-size: 20px
-      //line-height: normal
-      //text-decoration: none
-      //text-transform: lowercase
-      //color: $text
 
 #thanks
   +stackwide
