@@ -3,6 +3,7 @@ mediafiles
 local_settings.py
 art/
 sasscache
+backups/
 
 .DS_Store
 
