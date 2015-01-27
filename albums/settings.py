@@ -17,9 +17,7 @@ from local_settings import (
   SECRET_KEY,
   DATABASES,
   STATIC_ROOT,
-  AWS_S3_ACCESS_KEY_ID,
-  AWS_S3_SECRET_ACCESS_KEY,
-  AWS_STORAGE_BUCKET_NAME,
+  MEDIA_ROOT,
 )
 
 TEMPLATE_DEBUG = DEBUG
@@ -71,10 +69,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-# Media files
+# Media (user-uploaded) files
 
-MEDIA_ROOT = '//s3-us-west-2.amazonaws.com/mg-albums'
-MEDIA_URL = 'http://s3-us-west-2.amazonaws.com/mg-albums/'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
-AWS_S3_SECURE_URLS = False   # use http or https
-AWS_QUERYSTRING_AUTH = False # don't use aws auth
+MEDIA_URL = '/media/'

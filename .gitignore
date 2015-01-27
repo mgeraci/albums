@@ -1,5 +1,9 @@
+staticfiles
+mediafiles
 local_settings.py
 art/
+
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
