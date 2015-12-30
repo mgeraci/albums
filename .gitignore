@@ -2,7 +2,7 @@ staticfiles
 mediafiles
 local_settings.py
 art/
-sasscache
+.sass-cache
 backups/
 
 .DS_Store
