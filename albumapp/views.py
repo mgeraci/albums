@@ -10,12 +10,17 @@ def album_lists(request):
 
 def album_list(request, slug):
   lists = AlbumList.objects.all()
-  list = get_object_or_404(AlbumList, slug=slug)
-  selections = AlbumSelection.objects.filter(album_list=list)
+  this_list = get_object_or_404(AlbumList, slug=slug)
+  selections = AlbumSelection.objects.filter(album_list=this_list)
+
+  # in context of my descriptions, we can assume that any single quote should
+  # be a smart right quote
+  for selection in selections:
+    selection.description = selection.description.replace("'", "&rsquo;")
 
   context = {
     'lists': lists,
-    'list': list,
+    'list': this_list,
     'selections': selections,
   }
 

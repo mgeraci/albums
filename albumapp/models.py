@@ -22,7 +22,7 @@ class AlbumList(models.Model):
   hidden = models.BooleanField(default=False)
 
   class Meta:
-    ordering = ['name']
+    ordering = ['-name']
 
   def __unicode__(self):
     return unicode(self.name)
