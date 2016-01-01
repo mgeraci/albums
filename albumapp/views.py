@@ -9,7 +9,7 @@ def album_lists(request):
 
 
 def album_list(request, slug):
-  lists = AlbumList.objects.all()
+  lists = AlbumList.objects.all().order_by('slug')
   this_list = get_object_or_404(AlbumList, slug=slug)
   selections = AlbumSelection.objects.filter(album_list=this_list)
 
