@@ -25,7 +25,7 @@ audioPlayer = function(){
 	}
 
   // documentation: http://wpaudioplayer.com/standalone/
-  AudioPlayer.setup(window.location.protocol + "//" + window.location.host + "/static/player.swf", {
+  AudioPlayer.setup(window.location.protocol + "//albums-static.michaelgeraci.com/player.swf", {
     width: 290,
     transparentpagebg: "yes",
     noinfo: "yes",
