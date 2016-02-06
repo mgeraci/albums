@@ -1,7 +1,7 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+from . import views
 
-urlpatterns = patterns(
-    'albumapp.views',
-    url(r'^$', 'album_lists', name='album_lists_url'),
-    url(r'^list/(?P<slug>[^/]+)$', 'album_list', name='album_list_url'),
-)
+urlpatterns = [
+    url(r'^$', views.album_lists, name='album_lists_url'),
+    url(r'^list/(?P<slug>[^/]+)/$', views.album_list, name='album_list_url'),
+]

@@ -1,5 +1,4 @@
-dj-database-url==0.3.0
-Django==1.7.1
+Django==1.9.2
 MySQL-python==1.2.5
 Pillow==2.7.0
 wheel==0.24.0
