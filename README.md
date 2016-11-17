@@ -1,3 +1,10 @@
+# DEPRECATED
+This repo has been moved to my portfolio repo:
+
+https://github.com/mgeraci/portfolio/tree/master/portfolio/albums
+
+This repo will be kept around for its git history.
+
 albums
 ======
 
